@@ -43,7 +43,7 @@ var authTag = {
 	moderatorTag: "<span style='color: #00048E'><b>[Moderator]<timestamp/>",
 	adminTag: "<span style='color: #8E0000'><b>[Administrator]<timestamp/>",
 	ownerTag: "<span style='color: #210433'><b>[Owner]<timestamp/>",
-	hiddenTag: userTag
+	hiddenTag: authTag.userTag
 	
 	// Custom Tags Here
 };

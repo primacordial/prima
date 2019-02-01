@@ -2097,37 +2097,37 @@ beforeChatMessage: function(src, message, chan) {
     }
 
 	if (!sys.dbRegistered(src)) {
-		sys.sendHtmlAll(authTag.defaultTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.defaultTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.dbRegistered(src)) {
-		sys.sendHtmlAll(authTag.userTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.userTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 1) {
-		sys.sendHtmlAll(authTag.moderatorTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.moderatorTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 2) {
-		sys.sendHtmlAll(authTag.adminTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.adminTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 3) {
-		sys.sendHtmlAll(authTag.ownerTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.ownerTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 4) {
-		sys.sendHtmlAll(authTag.hiddenTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.hiddenTag + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;

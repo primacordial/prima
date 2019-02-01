@@ -38,12 +38,12 @@ var Config = {
 
 // Authority Tags / Custom Tags
 var authTag = {
-	defaultTag: "<span style='color: #465060'><b>[Unregistered]<timestamp/>",
-	userTag: "<span style='color: #465060'><b>[Member]<timestamp/>",
-	moderatorTag: "<span style='color: #00048E'><b>[Moderator]<timestamp/>",
-	adminTag: "<span style='color: #8E0000'><b>[Administrator]<timestamp/>",
-	ownerTag: "<span style='color: #210433'><b>[Owner]<timestamp/>",
-	hiddenTag: "<span style='color: #465060'><b>[Member]<timestamp/>"
+	defaultTag: "<timestamp/><span style='color: #465060'><b>[Unregistered]",
+	userTag: "<timestamp/><span style='color: #465060'><b>[Member]",
+	moderatorTag: "<timestamp/><span style='color: #00048E'><b>[Moderator]",
+	adminTag: "<timestamp/><span style='color: #8E0000'><b>[Administrator]",
+	ownerTag: "<timestamp/><span style='color: #210433'><b>[Owner]",
+	hiddenTag: "<timestamp/><span style='color: #465060'><b>[Member]"
 	
 	// Custom Tags Here
 };
@@ -2097,37 +2097,37 @@ beforeChatMessage: function(src, message, chan) {
     }
 
 	if (!sys.dbRegistered(src)) {
-		sys.sendHtmlAll(authTag.defaultTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.defaultTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.dbRegistered(src)) {
-		sys.sendHtmlAll(authTag.userTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.userTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 1) {
-		sys.sendHtmlAll(authTag.moderatorTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.moderatorTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 2) {
-		sys.sendHtmlAll(authTag.adminTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.adminTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 3) {
-		sys.sendHtmlAll(authTag.ownerTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.ownerTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) === 4) {
-		sys.sendHtmlAll(authTag.hiddenTag + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll(authTag.hiddenTag + "<span style='color: " + sys.getColor(src) + "'>" + sys.name(src) + "</b> ♦ </span>" + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
